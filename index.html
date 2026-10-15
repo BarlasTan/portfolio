@@ -5,27 +5,185 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
     <style>
+      :root {
+        --bg: #09090b;
+        --panel: rgba(17, 24, 39, 0.8);
+        --text: #f5f5f5;
+        --muted: #cbd5e1;
+        --accent: #8b5cf6;
+        --accent-2: #22d3ee;
+        --glow: rgba(139, 92, 246, 0.45);
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
       body {
         margin: 0;
         min-height: 100vh;
+        font-family: Arial, sans-serif;
+        background:
+          radial-gradient(circle at top, rgba(139, 92, 246, 0.22), transparent 35%),
+          radial-gradient(circle at bottom right, rgba(34, 211, 238, 0.16), transparent 30%),
+          var(--bg);
+        color: var(--text);
+      }
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 32px 20px 80px;
+      }
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 0 22px;
+      }
+      .brand {
+        letter-spacing: 0.18em;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .nav a {
+        color: var(--text);
+        text-decoration: none;
+        border: 1px solid rgba(255,255,255,0.16);
+        border-radius: 999px;
+        padding: 10px 16px;
+        transition: 0.2s ease;
+      }
+      .nav a:hover {
+        border-color: rgba(139, 92, 246, 0.7);
+        box-shadow: 0 0 18px var(--glow);
+      }
+      .hero {
+        min-height: 72vh;
         display: grid;
         place-items: center;
-        font-family: Arial, sans-serif;
-        background: #0f172a;
-        color: #f8fafc;
-      }
-      .container {
         text-align: center;
-        padding: 2rem;
       }
-      h1 { font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 1rem; }
-      p { color: #cbd5e1; font-size: 1.1rem; }
+      .eyebrow {
+        display: inline-block;
+        padding: 8px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(139, 92, 246, 0.5);
+        background: rgba(139, 92, 246, 0.08);
+        color: #ddd6fe;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-size: 0.72rem;
+        margin-bottom: 18px;
+      }
+      h1 {
+        font-size: clamp(2.8rem, 7vw, 6rem);
+        margin: 0;
+        line-height: 0.96;
+      }
+      .accent {
+        background: linear-gradient(90deg, #c084fc, #67e8f9);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .lead {
+        max-width: 760px;
+        margin: 20px auto 0;
+        color: var(--muted);
+        font-size: 1.08rem;
+        line-height: 1.7;
+      }
+      .cta-row {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 28px;
+        flex-wrap: wrap;
+      }
+      .button {
+        display: inline-block;
+        padding: 14px 22px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: 0.2s ease;
+      }
+      .button.primary {
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        color: #050816;
+      }
+      .button.secondary {
+        color: var(--text);
+        border: 1px solid rgba(255,255,255,0.18);
+      }
+      .button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 0 24px rgba(139, 92, 246, 0.25);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 18px;
+        margin-top: 28px;
+      }
+      .card {
+        background: var(--panel);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 20px;
+        padding: 22px;
+      }
+      .card h3 {
+        margin-top: 0;
+        margin-bottom: 12px;
+        font-size: 1.1rem;
+      }
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+      @media (max-width: 680px) {
+        .nav {
+          flex-direction: column;
+          gap: 14px;
+        }
+      }
     </style>
   </head>
   <body>
-    <div class="container">
-      <h1>Yeni başlangıç</h1>
-      <p>Portfolio temiz bir başlangıç yapıyor.</p>
+    <div class="wrap">
+      <nav class="nav">
+        <div class="brand">Barlas Tan</div>
+        <a href="lava-nebula.html">Lava Nebula</a>
+      </nav>
+
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Creative portfolio</div>
+          <h1><span class="accent">New</span> beginning</h1>
+          <p class="lead">
+            Portfolio structure reset and a fresh direction is now in motion.
+            This landing page is the base for the next creative era.
+          </p>
+          <div class="cta-row">
+            <a class="button primary" href="lava-nebula.html">Open Lava Nebula</a>
+            <a class="button secondary" href="#vision">See vision</a>
+          </div>
+        </div>
+      </section>
+
+      <div id="vision" class="grid">
+        <div class="card">
+          <h3>Vision</h3>
+          <p>Electronic atmosphere, microtonal arabesque textures and heavy electric guitar working as one.</p>
+        </div>
+        <div class="card">
+          <h3>Direction</h3>
+          <p>Berlin-based, Istanbul-rooted, experimental and cinematic, designed for both club energy and long-form focus.</p>
+        </div>
+        <div class="card">
+          <h3>Goal</h3>
+          <p>Build an artist identity, release strategy, and label pipeline with a consistent signal and long-term presence.</p>
+        </div>
+      </div>
     </div>
   </body>
 </html>
